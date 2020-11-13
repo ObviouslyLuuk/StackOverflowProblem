@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>
+            Neural Net JS
+        </title>
+    </head>
+<body>
+    <p>Immediately starts running in the console.</p>
+    <p>Dead code consists of lines 213 through 218 in neural_network_with_dead_code.js</p>
+    <p> <div id="round"></div> rounds of 1000 epochs finished.</p>
+    <p> <div id="time_without"></div> milliseconds used by version without dead code.</p>
+    <p> <div id="time_with"></div> milliseconds used by version with dead code.</p>
+</body>
+
+<script type="module" src="main.js">
+
+    let round = document.getElementById("round")
+    let time_without = document.getElementById("time_without")
+    let time_with = document.getElementById("time_with")
+
+    testNets(round, time_without, time_with)
+
+</script>
+</html>
