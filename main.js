@@ -49,8 +49,8 @@ function testNets(round, time_without, time_with) {
         time_without.innerHTML = time_sum
         time_with.innerHTML = time_sum_dead_code  
 
-        if (i < 5000) {
-            i++
+        i++
+        if (i < 10000) {
             setTimeout(runTests, 1)
         }
     }

@@ -210,6 +210,13 @@ export class Network {
             }
         }
 
+        // let nothing = false
+        // if (nothing) {
+        //     // The order of these can be changed
+        //     console.log("This will never print") // it doesn't matter what is logged here as long as it's something
+        //     console.log([].length) // the length property has to be used here
+        // }        
+
         // Add one to the score if the prediction was correct
         if (get_max_value_index(activations[this.layers.length - 1]) == get_max_value_index(y))
             score += 1
