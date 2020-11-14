@@ -13,6 +13,7 @@
     <p> <div id="round"></div> sets of 1000 epochs finished (out of 10000 total).</p>
     <p> <div id="time_without"></div> milliseconds used by version without dead code.</p>
     <p> <div id="time_with"></div> milliseconds used by version with dead code.</p>
+    <div>Version with dead code is <div id="time_difference"></div>% faster.</div>
 </body>
 
 <script type="module" src="main.js">
@@ -20,8 +21,9 @@
     let round = document.getElementById("round")
     let time_without = document.getElementById("time_without")
     let time_with = document.getElementById("time_with")
+    let time_difference = document.getElementById("time_difference")
 
-    testNets(round, time_without, time_with)
+    testNets(round, time_without, time_with, time_difference)
 
 </script>
 </html>

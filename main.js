@@ -25,7 +25,7 @@ function initNet(dead_code=false) {
     net.SGD(1000, 1, -1)
 }
 
-function testNets(round, time_without, time_with) {
+function testNets(round, time_without, time_with, time_difference) {
     let time_sum = 0
     let time_sum_dead_code = 0
     let i = 0
@@ -46,7 +46,8 @@ function testNets(round, time_without, time_with) {
         }
         round.innerHTML = i + 1
         time_without.innerHTML = time_sum
-        time_with.innerHTML = time_sum_dead_code  
+        time_with.innerHTML = time_sum_dead_code
+        time_difference.innerHTML = (time_sum / time_sum_dead_code - 1) * 100
 
         i++
         if (i < 10000) {
@@ -56,4 +57,4 @@ function testNets(round, time_without, time_with) {
     runTests()
 }
 
-testNets(round, time_without, time_with)
+testNets(round, time_without, time_with, time_difference)
