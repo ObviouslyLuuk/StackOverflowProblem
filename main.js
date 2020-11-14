@@ -17,12 +17,12 @@ function initNet(dead_code=false) {
     let training_data = xor_3
     switch(dead_code) {
         case false:
-            var net = new Network(training_data, [10])
+            var net = new Network(training_data, [16,16])
             break
         case true:
-            var net = new Network_DC(training_data, [10])
+            var net = new Network_DC(training_data, [16,16])
     }
-    net.SGD(1000, 1, -1)
+    net.SGD(500, 1, -1)
 }
 
 function testNets(round, time_without, time_with, time_difference) {
