@@ -44,7 +44,6 @@ function testNets(round, time_without, time_with) {
                     time_sum_dead_code += (t1-t0)
             }
         }
-        console.log("rounds finished")
         round.innerHTML = i + 1
         time_without.innerHTML = time_sum
         time_with.innerHTML = time_sum_dead_code  
