@@ -11,6 +11,18 @@
     <div>neural_network.js and neural_network_with_dead_code.js are literal copies of each other apart from the 5 lines commented out.</div>
     <div>How is the version with dead code faster?</div>
     <br>
+    <br>
+    <h3>Test 1:</h3>
+    <div>Running both versions once with 100000 epochs</div>
+    <br>
+    <div> <div id="time_once"></div> milliseconds used by version without dead code.</div>
+    <br>
+    <div> <div id="time_once_with"></div> milliseconds used by version with dead code.</div>
+    <br>
+    <div>Version with dead code is <div id="time_once_difference" style="color: orange"></div>% faster.</div>
+    <br>
+    <br>
+    <h3>Test 2:</h3>
     <div> <div id="round"></div> sets of 500 epochs finished (out of 10000 total).</div>
     <br>
     <div> <div id="time_without"></div> milliseconds used by version without dead code.</div>
@@ -23,12 +35,15 @@
 
 <script type="module" src="main.js">
 
+    let time_once = document.getElementById("time_once")
+    let time_once_with = document.getElementById("time_once_with")
+    let time_once_difference = document.getElementById("time_once_difference")
     let round = document.getElementById("round")
     let time_without = document.getElementById("time_without")
     let time_with = document.getElementById("time_with")
     let time_difference = document.getElementById("time_difference")
 
-    testNets(round, time_without, time_with, time_difference)
+    testNets(round, time_without, time_with, time_difference, time_once, time_once_with, time_once_difference)
 
 </script>
 </html>

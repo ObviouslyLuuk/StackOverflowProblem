@@ -13,7 +13,7 @@ const xor_3 = [
     {"x": [1,1,1], "y": [1,0]},        
 ]
 
-function initNet(dead_code=false) {
+function initNet(dead_code=false, epochs=500) {
     let training_data = xor_3
     switch(dead_code) {
         case false:
@@ -22,10 +22,31 @@ function initNet(dead_code=false) {
         case true:
             var net = new Network_DC(training_data, [16,16])
     }
-    net.SGD(500, 1, -1)
+    net.SGD(epochs, 1, -1)
 }
 
-function testNets(round, time_without, time_with, time_difference) {
+function testNets(round, time_without, time_with, time_difference, time_once, time_once_with, time_once_difference) {
+
+    let element = time_once
+    let dead_code = false
+    function runTestOnce() {
+        let t0 = performance.now()
+        initNet(dead_code, 100000)
+        let t1 = performance.now()
+        element.innerHTML = (t1-t0)
+        time_once_difference.innerHTML = (time_once.innerHTML / time_once_with.innerHTML - 1) * 100    
+
+        if (!dead_code) {
+            element = time_once_with
+            element.innerHTML = "Starting..."
+            dead_code = true
+            setTimeout(runTestOnce, 1)
+        }
+    }
+
+    element.innerHTML = "Starting..."
+    setTimeout(runTestOnce, 1)
+    
     let time_sum = 0
     let time_sum_dead_code = 0
     let i = 0
@@ -57,4 +78,4 @@ function testNets(round, time_without, time_with, time_difference) {
     runTests()
 }
 
-testNets(round, time_without, time_with, time_difference)
+testNets(round, time_without, time_with, time_difference, time_once, time_once_with, time_once_difference)
